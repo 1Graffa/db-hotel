@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interrogazioni</title>
+</head>
+
+<body>
+    <ol>
+        <li>Seleziona tutti gli ospiti che sono stati identificati con la carta di identità.
+            <ul>
+                <li>SELECT *</li>
+                <li>FROM `ospiti`</li>
+                <li>WHERE `document_type` = 'ci';</li>
+            </ul>
+        </li>
+        <li>Seleziona tutti gli ospiti che sono nati dopo il 1988.
+            <ul>
+                <li>SELECT *</li>
+                <li>FROM `ospiti`</li>
+                <li>WHERE YEAR(`date_of_birth`) > '1988';</li>
+            </ul>
+        </li>
+        <li>Seleziona tutti gli ospiti che hanno più di 20 anni (al momento dell'esecuzione della query).
+            <ul>
+                <li>SELECT *</li>
+                <li>FROM `ospiti`</li>
+                <li>WHERE YEAR(`date_of_birth`) < YEAR(CURRENT_DATE()) - 20;</li>
+            </ul>
+        </li>
+        <li>Seleziona tutti gli ospiti il cui nome inizia con la D.
+            <ul>
+                <li>SELECT *</li>
+                <li>FROM `ospiti`</li>
+                <li>WHERE `name` LIKE 'D%';</li>
+            </ul>
+        </li>
+        <li>Calcolare il totale degli ospiti paganti.
+            <ul>
+                <li>SELECT COUNT(`id`)</li>
+                <li>FROM `paganti`</li>
+            </ul>
+        </li>
+        <li>Qual è il prezzo massimo pagato?
+            <ul>
+                <li>SELECT MAX(`price`)</li>
+                <li>FROM `pagamenti`;</li>
+            </ul>
+        </li>
+        <li>Seleziona gli ospiti riconosciuti con patente e nati nel 1975.
+            <ul>
+                <li>SELECT *</li>
+                <li>FROM `ospiti`</li>
+                <li>WHERE `document_type` = 'Driver License' AND YEAR(`date_of_birth`) = '1975';</li>
+            </ul>
+        </li>
+        <li>Quanti posti letto ha l'hotel in totale?
+            <ul>
+                <li>SELECT COUNT(`beds`)</li>
+                <li>FROM `stanze`;</li>
+            </ul>
+        </li>
+    </ol>
+</body>
+
+</html>
