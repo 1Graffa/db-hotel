@@ -21,9 +21,9 @@
       </li>
       <li>Somma i prezzi dei pagamenti raggruppandoli per status..
           <ul>
-              <li>SELECT *</li>
-              <li>FROM `ospiti`</li>
-              <li>WHERE YEAR(`date_of_birth`) &gt; '1988';</li>
+              <li>SELECT SUM(`price`) AS`totale`,`status`</li>
+              <li>FROM `pagamenti`</li>
+              <li>GROUP BY `status`</li>
           </ul>
       </li>
       <li>Conta quante volte è stata prenotata ogni stanza.
