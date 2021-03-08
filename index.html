@@ -81,15 +81,21 @@
     <ul><strong>BONUS</strong>
       <li>Come si chiamano gli ospiti che hanno fatto più di due prenotazioni?
           <ul>
-              <li>SELECT *</li>
-              <li>FROM `ospiti`</li>
-              <li>WHERE `document_type` = 'Driver License' AND YEAR(`date_of_birth`) = '1975';</li>
+              <li>SELECT ospiti.name, COUNT(prenotazioni_has_ospiti.prenotazione_id) AS volte_prenotate</li>
+              <li>FROM prenotazioni_has_ospiti</li>
+              <li>INNER JOIN ospiti</li>
+              <li>ON prenotazioni_has_ospiti.ospite_id = ospiti.id</li>
+              <li>GROUP BY ospiti.id</li>
+              <li>HAVING volte_prenotate > 2</li>
           </ul>
       </li>
       <li>Le stanze sono state tutte prenotate almeno una volta?(Visualizzare le stanze non ancora prenotate)
           <ul>
-              <li>SELECT SUM(`beds`)</li>
-              <li>FROM `stanze`;</li>
+              <li>SELECT stanze.room_number, COUNT(prenotazioni.id) AS volte_prenotate</li>
+              <li>FROM stanze</li>
+              <li>LEFT JOIN prenotazioni</li>
+              <li>ON stanze.id = prenotazioni.stanza_id</li>
+              <li>GROUP BY stanze.room_number</li>
           </ul>
       </li>
     </ul>
