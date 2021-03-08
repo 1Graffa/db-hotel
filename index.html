@@ -19,7 +19,7 @@
               <li>GROUP BY YEAR(`date_of_birth`);</li>
           </ul>
       </li>
-      <li>Somma i prezzi dei pagamenti raggruppandoli per status..
+      <li>Somma i prezzi dei pagamenti raggruppandoli per status.
           <ul>
               <li>SELECT SUM(`price`) AS`totale`,`status`</li>
               <li>FROM `pagamenti`</li>
@@ -28,9 +28,9 @@
       </li>
       <li>Conta quante volte è stata prenotata ogni stanza.
           <ul>
-              <li>SELECT *</li>
-              <li>FROM `ospiti`</li>
-              <li>WHERE YEAR(`date_of_birth`) &lt; YEAR(CURRENT_DATE()) - 20;</li>
+              <li>SELECT `stanze`.`room_number` AS `numero_stanza`, COUNT(`prenotazioni`.`id`) AS`num_prenotazioni`</li>
+              <li>FROM `stanze` LEFT JOIN `prenotazioni` ON `stanze`.`id` = `prenotazioni`.`stanza_id`</li>
+              <li>GROUP BY `stanze`.`room_number`</li>
           </ul>
       </li>
       <li>Fai un’analisi per vedere se ci sono ore in cui le prenotazioni sono più frequenti.
