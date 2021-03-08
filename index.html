@@ -45,7 +45,8 @@
           <ul>
               <li>SELECT `prenotazioni_has_ospiti`.`id`,`ospiti`.`name`, `ospiti`.`lastname`</li>
               <li>FROM `prenotazioni_has_ospiti`</li>
-              <li>INNER JOIN `ospiti` ON `ospiti`.`id` = `prenotazioni_has_ospiti`.`ospite_id`</li>
+              <li>INNER JOIN `ospiti`</li>
+              <li>ON `ospiti`.`id` = `prenotazioni_has_ospiti`.`ospite_id`</li>
               <li>ORDER BY `prenotazioni_has_ospiti`.`id`</li>
           </ul>
       </li>
@@ -63,6 +64,17 @@
               <li>ON `pagamenti`.`pagante_id` = `paganti`.`id`</li>
               <li>WHERE MONTH(`prenotazioni`.`created_at`) = 05 </li>
               <li>AND YEAR(`prenotazioni`.`created_at`) = 2018</li>
+          </ul>
+      </li>
+      <li> Stampare Nome,Cognome, Prezzo del Pagante per tutte le prenotazioni fatte a Maggio .2018
+          <ul>
+              <li>SELECT SUM(`pagamenti`.`price`) AS 'prezzo_tot_1°_piano',`stanze`.`floor`</li>
+              <li>FROM `prenotazioni`</li>
+              <li>INNER JOIN `pagamenti`</li>
+              <li>ON `pagamenti`.`prenotazione_id = `prenotazioni`.`id`</li>
+              <li>INNER JOIN `stanze`</li>
+              <li>ON `stanze`.`id` = `prenotazioni`.`stanza_id`</li>
+              <li>WHERE `floor` = 1
           </ul>
       </li>
     </ol>
