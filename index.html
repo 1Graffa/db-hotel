@@ -9,6 +9,68 @@
 </head>
 
 <body>
+
+  <h2>ESERCIZI 8 MARZO</h2>
+  <ol>
+      <li> Conta gli ospiti raggruppandoli per anno di nascita.
+          <ul>
+              <li>SELECT YEAR(`date_of_birth`), COUNT(`id`) AS `totale`</li>
+              <li>FROM `ospiti`</li>
+              <li>GROUP BY YEAR(`date_of_birth`);</li>
+          </ul>
+      </li>
+      <li>Somma i prezzi dei pagamenti raggruppandoli per status..
+          <ul>
+              <li>SELECT *</li>
+              <li>FROM `ospiti`</li>
+              <li>WHERE YEAR(`date_of_birth`) &gt; '1988';</li>
+          </ul>
+      </li>
+      <li>Conta quante volte è stata prenotata ogni stanza.
+          <ul>
+              <li>SELECT *</li>
+              <li>FROM `ospiti`</li>
+              <li>WHERE YEAR(`date_of_birth`) &lt; YEAR(CURRENT_DATE()) - 20;</li>
+          </ul>
+      </li>
+      <li>Fai un’analisi per vedere se ci sono ore in cui le prenotazioni sono più frequenti.
+          <ul>
+              <li>SELECT *</li>
+              <li>FROM `ospiti`</li>
+              <li>WHERE `name` LIKE 'D%';</li>
+          </ul>
+      </li>
+      <li>Stampare tutti gli ospiti per ogni prenotazione.
+          <ul>
+              <li>SELECT COUNT(`id`)</li>
+              <li>FROM `paganti`</li>
+          </ul>
+      </li>
+      <li> Stampare Nome,Cognome, Prezzo del Pagante per tutte le prenotazioni fatte a Maggio .2018
+          <ul>
+              <li>SELECT MAX(`price`)</li>
+              <li>FROM `pagamenti`;</li>
+          </ul>
+      </li>
+    </ol>
+    <ul><strong>BONUS</strong>
+      <li>Come si chiamano gli ospiti che hanno fatto più di due prenotazioni?
+          <ul>
+              <li>SELECT *</li>
+              <li>FROM `ospiti`</li>
+              <li>WHERE `document_type` = 'Driver License' AND YEAR(`date_of_birth`) = '1975';</li>
+          </ul>
+      </li>
+      <li>Le stanze sono state tutte prenotate almeno una volta?(Visualizzare le stanze non ancora prenotate)
+          <ul>
+              <li>SELECT SUM(`beds`)</li>
+              <li>FROM `stanze`;</li>
+          </ul>
+      </li>
+    </ul>
+
+
+  <h2>ESERCIZI 5 MARZO</h2>
     <ol>
         <li>Seleziona tutti gli ospiti che sono stati identificati con la carta di identità.
             <ul>
@@ -21,7 +83,7 @@
             <ul>
                 <li>SELECT *</li>
                 <li>FROM `ospiti`</li>
-                <li>WHERE YEAR(`date_of_birth`) > '1988';</li>
+                <li>WHERE YEAR(`date_of_birth`) &gt; '1988';</li>
             </ul>
         </li>
         <li>Seleziona tutti gli ospiti che hanno più di 20 anni (al momento dell'esecuzione della query).
