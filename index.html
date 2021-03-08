@@ -43,8 +43,10 @@
       </li>
       <li>Stampare tutti gli ospiti per ogni prenotazione.
           <ul>
-              <li>SELECT COUNT(`id`)</li>
-              <li>FROM `paganti`</li>
+              <li>SELECT `prenotazioni_has_ospiti`.`id`,`ospiti`.`name`, `ospiti`.`lastname`</li>
+              <li>FROM `prenotazioni_has_ospiti`</li>
+              <li>INNER JOIN `ospiti` ON `ospiti`.`id` = `prenotazioni_has_ospiti`.`ospite_id`</li>
+              <li>ORDER BY `prenotazioni_has_ospiti`.`id`</li>
           </ul>
       </li>
       <li> Stampare Nome,Cognome, Prezzo del Pagante per tutte le prenotazioni fatte a Maggio .2018
